@@ -267,6 +267,7 @@
             font-size: 1.1rem;
             font-weight: 600;
             margin-top: 4px;
+            word-break: break-word;
         }
 
         table input {
@@ -387,21 +388,24 @@
             </div>
             <div class="diagnostico-grid">
                 <div class="diagnostico-item">
-                    <div class="diagnostico-label">PREGUNTA 1</div>
-                    <div class="diagnostico-value" id="diagnosticoP1">-</div>
+                    <div class="diagnostico-label" id="diagnosticoLabel1">PREGUNTA 1</div>
+                    <div class="diagnostico-value" id="diagnosticoVal1">-</div>
                 </div>
                 <div class="diagnostico-item">
-                    <div class="diagnostico-label">PREGUNTA 2</div>
-                    <div class="diagnostico-value" id="diagnosticoP2">-</div>
+                    <div class="diagnostico-label" id="diagnosticoLabel2">PREGUNTA 2</div>
+                    <div class="diagnostico-value" id="diagnosticoVal2">-</div>
                 </div>
                 <div class="diagnostico-item">
-                    <div class="diagnostico-label">PREGUNTA 3</div>
-                    <div class="diagnostico-value" id="diagnosticoP3">-</div>
+                    <div class="diagnostico-label" id="diagnosticoLabel3">PREGUNTA 3</div>
+                    <div class="diagnostico-value" id="diagnosticoVal3">-</div>
                 </div>
                 <div class="diagnostico-item">
-                    <div class="diagnostico-label">PREGUNTA 4</div>
-                    <div class="diagnostico-value" id="diagnosticoP4">-</div>
+                    <div class="diagnostico-label" id="diagnosticoLabel4">PREGUNTA 4</div>
+                    <div class="diagnostico-value" id="diagnosticoVal4">-</div>
                 </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-4" id="diagnosticoExtra">
+                <!-- Para preguntas 5 y 6 si existen -->
             </div>
         </div>
 
@@ -536,6 +540,44 @@
             'general': 'General'
         };
 
+        // Mapeo de preguntas por servicio para mostrar etiquetas correctas
+        const serviceQuestions = {
+            electricidad: [
+                "tipo de trabajo",
+                "tipo de inmueble",
+                "urgencia",
+                "cantidad de puntos"
+            ],
+            minisplit: [
+                "tipo de servicio",
+                "capacidad del equipo",
+                "tipo de gas",
+                "urgencia",
+                "cantidad de equipos"
+            ],
+            soldadura: [
+                "trabajo requerido",
+                "material",
+                "medidas aproximadas",
+                "urgencia"
+            ],
+            plomeria: [
+                "problema",
+                "zona afectada",
+                "urgencia"
+            ],
+            ventiladores: [
+                "servicio",
+                "tipo de ventilador",
+                "urgencia"
+            ],
+            general: [
+                "tipo de servicio",
+                "área",
+                "urgencia"
+            ]
+        };
+
         const serviceKeywords = {
             'electricidad': ['electric', 'luz', 'corto', 'tablero', 'acometida', 'cable', 'pastilla'],
             'minisplit': ['clima', 'minisplit', 'aire', 'refrigeracion', 'gas', 'frio', 'calor'],
@@ -552,6 +594,7 @@
         let cotizacionData = null;
         let pdfDoc = null;
         let folioService = null;
+        let currentServiceQuestions = [];
 
         function updateClock() {
             const now = new Date();
@@ -654,14 +697,67 @@
                             selectService(folioService);
                             currentService = folioService;
                             
+                            // Cargar preguntas del servicio detectado
+                            currentServiceQuestions = serviceQuestions[folioService] || [];
+                            
                             setTimeout(() => loadMaterialsFromCloud(), 500);
                         }
                         
-                        // Cargar diagnóstico
-                        document.getElementById('diagnosticoP1').textContent = cotizacionData.Respuesta1 || '-';
-                        document.getElementById('diagnosticoP2').textContent = cotizacionData.Respuesta2 || '-';
-                        document.getElementById('diagnosticoP3').textContent = cotizacionData.Respuesta3 || '-';
-                        document.getElementById('diagnosticoP4').textContent = cotizacionData.Respuesta4 || '-';
+                        // Cargar diagnóstico con etiquetas correctas
+                        const preguntas = [];
+                        const respuestas = [];
+                        
+                        // Extraer hasta 6 preguntas y respuestas
+                        for (let i = 1; i <= 6; i++) {
+                            if (cotizacionData[`Pregunta${i}`]) {
+                                preguntas.push(cotizacionData[`Pregunta${i}`]);
+                            } else {
+                                preguntas.push('');
+                            }
+                            
+                            let respuesta = cotizacionData[`Respuesta${i}`] || '-';
+                            
+                            // Limpiar respuestas que parezcan fechas ISO
+                            if (typeof respuesta === 'string' && respuesta.includes('T') && respuesta.includes('.000Z')) {
+                                // Es una fecha ISO, probablemente un error
+                                respuesta = respuesta.split('T')[0]; // Tomar solo la fecha
+                            }
+                            
+                            respuestas.push(respuesta);
+                        }
+                        
+                        // Mostrar en el grid de diagnóstico
+                        for (let i = 0; i < 4; i++) {
+                            const labelElem = document.getElementById(`diagnosticoLabel${i+1}`);
+                            const valElem = document.getElementById(`diagnosticoVal${i+1}`);
+                            
+                            if (labelElem) {
+                                // Usar la pregunta guardada o un placeholder
+                                labelElem.textContent = preguntas[i] ? preguntas[i].toUpperCase() : 
+                                                        (currentServiceQuestions[i] || `PREGUNTA ${i+1}`).toUpperCase();
+                            }
+                            if (valElem) {
+                                valElem.textContent = respuestas[i] || '-';
+                            }
+                        }
+                        
+                        // Mostrar preguntas 5 y 6 si existen
+                        const extraContainer = document.getElementById('diagnosticoExtra');
+                        if (extraContainer) {
+                            extraContainer.innerHTML = '';
+                            
+                            for (let i = 4; i < 6; i++) {
+                                if (preguntas[i] || respuestas[i] !== '-') {
+                                    const extraItem = document.createElement('div');
+                                    extraItem.className = 'diagnostico-item col-span-1';
+                                    extraItem.innerHTML = `
+                                        <div class="diagnostico-label">${(preguntas[i] || `PREGUNTA ${i+1}`).toUpperCase()}</div>
+                                        <div class="diagnostico-value">${respuestas[i] || '-'}</div>
+                                    `;
+                                    extraContainer.appendChild(extraItem);
+                                }
+                            }
+                        }
                         
                         document.getElementById('remoteQuoteBanner').classList.remove('hidden');
                         document.getElementById('bannerDetails').innerHTML = `Folio: ${folio}<br>${cotizacionData.Servicio || ''}`;
@@ -714,6 +810,7 @@
 
         function selectService(service) {
             currentService = service;
+            currentServiceQuestions = serviceQuestions[service] || [];
             document.querySelectorAll('.service-card').forEach(el => el.classList.remove('active'));
             const btn = document.getElementById(`svc-${service}`);
             if (btn) btn.classList.add('active');
@@ -889,7 +986,7 @@
                 if (phone) doc.text(`Teléfono: ${phone}`, 15, 74);
                 if (address) doc.text(`Dirección: ${address}`, 15, 81);
 
-                // Diagnóstico
+                // Diagnóstico con etiquetas reales
                 doc.setTextColor(0, 119, 255);
                 doc.setFontSize(14);
                 doc.setFont('helvetica', 'bold');
@@ -898,17 +995,28 @@
 
                 doc.setTextColor(255, 255, 255);
                 doc.setFontSize(10);
+                
+                // Obtener las etiquetas y valores actuales
+                const label1 = document.getElementById('diagnosticoLabel1').textContent;
+                const label2 = document.getElementById('diagnosticoLabel2').textContent;
+                const label3 = document.getElementById('diagnosticoLabel3').textContent;
+                const label4 = document.getElementById('diagnosticoLabel4').textContent;
+                const val1 = document.getElementById('diagnosticoVal1').textContent;
+                const val2 = document.getElementById('diagnosticoVal2').textContent;
+                const val3 = document.getElementById('diagnosticoVal3').textContent;
+                const val4 = document.getElementById('diagnosticoVal4').textContent;
+                
                 doc.setFont('helvetica', 'bold');
-                doc.text('Pregunta 1:', 15, 109);
-                doc.text('Pregunta 2:', 110, 109);
-                doc.text('Pregunta 3:', 15, 119);
-                doc.text('Pregunta 4:', 110, 119);
+                doc.text(label1 + ':', 15, 109);
+                doc.text(label2 + ':', 110, 109);
+                doc.text(label3 + ':', 15, 119);
+                doc.text(label4 + ':', 110, 119);
                 
                 doc.setFont('helvetica', 'normal');
-                doc.text(document.getElementById('diagnosticoP1').textContent, 55, 109);
-                doc.text(document.getElementById('diagnosticoP2').textContent, 150, 109);
-                doc.text(document.getElementById('diagnosticoP3').textContent, 55, 119);
-                doc.text(document.getElementById('diagnosticoP4').textContent, 150, 119);
+                doc.text(val1, 15 + this.getTextWidth(label1 + ':', 'bold') + 2, 109);
+                doc.text(val2, 110 + this.getTextWidth(label2 + ':', 'bold') + 2, 109);
+                doc.text(val3, 15 + this.getTextWidth(label3 + ':', 'bold') + 2, 119);
+                doc.text(val4, 110 + this.getTextWidth(label4 + ':', 'bold') + 2, 119);
 
                 // Tabla de conceptos
                 doc.setTextColor(0, 119, 255);
@@ -1077,6 +1185,13 @@
             toast.classList.remove('opacity-0');
             setTimeout(() => toast.classList.add('opacity-0'), 2800);
         }
+
+        // Helper para medir texto en PDF (simplificado)
+        function getTextWidth(text, fontStyle) {
+            // Aproximación simple: ~5 unidades por carácter
+            return text.length * 2.5;
+        }
+        window.getTextWidth = getTextWidth;
 
         document.addEventListener('DOMContentLoaded', () => {
             loadFromFolio().then(() => {
