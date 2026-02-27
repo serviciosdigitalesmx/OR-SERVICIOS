@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>OR SERVICIOS · ingeniería de mantenimiento</title>
+  <title>OR Servicios · ingeniería técnica</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,500;14..32,700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
@@ -16,20 +16,21 @@
     }
 
     :root {
-      --black-hole: #030405;
-      --steel-abs: #12141c;
-      --steel-dark: #1c1f2c;
-      --steel-mid: #2b3040;
-      --cyan-exothermic: #00e0ff;
-      --cyan-deep: #007a99;
-      --cyan-glow: 0 0 20px rgba(0, 224, 255, 0.65);
+      --black-hole: #121417;
+      --steel-abs: #1e1f24;
+      --steel-dark: #2a2c33;
+      --steel-mid: #3a3d47;
+      --or-blue: #0077ff;
+      --or-yellow: #ffbb00;
+      --or-yellow-glow: 0 0 20px rgba(255, 187, 0, 0.65);
+      --or-blue-glow: 0 0 20px rgba(0, 119, 255, 0.65);
       --glass-edge: rgba(255, 255, 255, 0.04);
       --text-primary: #f0f3f8;
       --text-secondary: #a6b0c0;
       --whatsapp-solid: #25d366;
       --whatsapp-dim: #128c7e;
-      --panel-bg: rgba(6, 8, 14, 0.85);
-      --scanner-line: rgba(0, 224, 255, 0.25);
+      --panel-bg: rgba(18, 20, 23, 0.85);
+      --scanner-line: rgba(255, 187, 0, 0.25);
       --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
       --font-body: 'Inter', 'Segoe UI', sans-serif;
     }
@@ -56,7 +57,7 @@
       left: 0;
       width: 100%;
       height: 4px;
-      background: linear-gradient(90deg, transparent, var(--cyan-exothermic), transparent);
+      background: linear-gradient(90deg, transparent, var(--or-yellow), transparent);
       filter: blur(6px);
       opacity: 0.3;
       z-index: 9999;
@@ -81,29 +82,32 @@
     .header {
       padding: 24px 20px 10px;
       text-align: center;
-      background: #080b12;
-      border-bottom: 1px solid rgba(0, 224, 255, 0.2);
+      background: #121417;
+      border-bottom: 1px solid var(--or-blue);
       box-shadow: 0 10px 30px -15px #000, inset 0 1px 0 rgba(255,255,255,0.02);
       position: relative;
       z-index: 5;
     }
 
-    .logo {
-      width: 150px;
-      height: auto;
-      filter: drop-shadow(0 0 18px var(--cyan-exothermic)) brightness(1.4) contrast(1.1);
-      transition: filter 0.4s, transform 0.2s;
+    .logo-text {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #fff, var(--or-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 2px;
     }
-
-    .logo:hover {
-      filter: drop-shadow(0 0 32px #fff) drop-shadow(0 0 20px var(--cyan-exothermic)) brightness(1.6);
-      transform: scale(1.02);
+    .logo-text span {
+      background: linear-gradient(135deg, var(--or-yellow), #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .hero {
       padding: 50px 20px 40px;
       text-align: center;
-      background: radial-gradient(ellipse at 20% 30%, #16222e, #020304 90%);
+      background: radial-gradient(ellipse at 20% 30%, #1a2a3a, #0a0c10 90%);
       position: relative;
       isolation: isolate;
     }
@@ -115,11 +119,11 @@
       text-transform: uppercase;
       color: #ffffff;
       text-wrap: balance;
-      background: linear-gradient(135deg, #fff 30%, var(--cyan-exothermic) 80%);
+      background: linear-gradient(135deg, #fff 30%, var(--or-blue) 80%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      filter: drop-shadow(0 0 30px rgba(0,224,255,0.5));
+      filter: drop-shadow(0 0 30px rgba(0,119,255,0.5));
     }
 
     .hero h1 span {
@@ -130,7 +134,7 @@
       color: var(--text-secondary);
       background: none;
       -webkit-text-fill-color: #b0c0d0;
-      text-shadow: 0 0 10px var(--cyan-exothermic);
+      text-shadow: 0 0 10px var(--or-blue);
       margin-top: 16px;
     }
 
@@ -140,11 +144,11 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: rgba(0,30,40,0.5);
+      background: rgba(255,187,0,0.5);
       padding: 10px 24px;
       border-radius: 60px;
-      border: 1px solid var(--cyan-exothermic);
-      box-shadow: 0 0 30px rgba(0,224,255,0.2);
+      border: 1px solid var(--or-yellow);
+      box-shadow: 0 0 30px rgba(255,187,0,0.2);
       backdrop-filter: blur(8px);
       color: #e0f0ff;
     }
@@ -159,11 +163,11 @@
     }
 
     .service-btn {
-      background: rgba(16, 20, 30, 0.7);
+      background: rgba(26, 28, 35, 0.7);
       backdrop-filter: blur(16px) saturate(200%);
       -webkit-backdrop-filter: blur(16px) saturate(200%);
       border: 1px solid var(--glass-edge);
-      border-left: 3px solid rgba(0,224,255,0.3);
+      border-left: 3px solid var(--or-blue);
       padding: 26px 22px;
       border-radius: 32px;
       color: white;
@@ -177,7 +181,7 @@
       display: flex;
       align-items: center;
       gap: 18px;
-      box-shadow: 0 30px 35px -20px #000, 0 0 0 1px rgba(0,224,255,0) inset;
+      box-shadow: 0 30px 35px -20px #000, 0 0 0 1px rgba(255,187,0,0) inset;
       transform: perspective(800px) rotateX(0deg) rotateY(0deg) scale(1);
       z-index: 2;
     }
@@ -189,7 +193,7 @@
       left: -150%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,187,0,0.1), transparent);
       transform: skewX(-20deg);
       transition: left 0.6s;
       pointer-events: none;
@@ -206,7 +210,7 @@
       left: 0;
       width: 100%;
       height: 2px;
-      background: linear-gradient(90deg, transparent, var(--cyan-exothermic), transparent);
+      background: linear-gradient(90deg, transparent, var(--or-yellow), transparent);
       filter: blur(4px);
       opacity: 0;
       transition: opacity 0.3s;
@@ -225,14 +229,14 @@
 
     .service-btn:hover {
       transform: perspective(800px) rotateX(1.5deg) rotateY(-0.8deg) scale(1.03) translateY(-6px);
-      border-left: 3px solid var(--cyan-exothermic);
-      box-shadow: 0 30px 40px -15px black, 0 0 40px var(--cyan-exothermic);
-      background: rgba(28, 34, 48, 0.9);
+      border-left: 3px solid var(--or-yellow);
+      box-shadow: 0 30px 40px -15px black, 0 0 40px var(--or-yellow);
+      background: rgba(36, 38, 45, 0.9);
     }
 
     .service-icon {
       font-size: 2.8rem;
-      filter: drop-shadow(0 0 10px cyan);
+      filter: drop-shadow(0 0 10px var(--or-blue));
     }
 
     .service-btn small {
@@ -242,13 +246,13 @@
 
     .services-detail {
       padding: 70px 20px;
-      background: #05070c;
+      background: #0a0c10;
     }
     
     .section-title {
       font-size: 2.6rem;
       text-align: center;
-      background: linear-gradient(135deg, #fff, #b0e0ff);
+      background: linear-gradient(135deg, #fff, var(--or-blue));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-bottom: 1rem;
@@ -256,11 +260,11 @@
     
     .section-subtitle {
       text-align: center;
-      color: cyan;
+      color: var(--or-yellow);
       font-size: 1.3rem;
       letter-spacing: 3px;
       margin-bottom: 50px;
-      border-bottom: 1px solid rgba(0,255,255,0.2);
+      border-bottom: 1px solid rgba(255,187,0,0.2);
       display: inline-block;
       padding-bottom: 8px;
       width: auto;
@@ -277,10 +281,10 @@
     }
 
     .service-card {
-      background: rgba(20,28,36,0.6);
+      background: rgba(26, 28, 35, 0.6);
       backdrop-filter: blur(10px);
-      border: 1px solid #2a3440;
-      border-left: 6px solid cyan;
+      border: 1px solid #2a2c33;
+      border-left: 6px solid var(--or-blue);
       border-radius: 40px;
       padding: 0;
       transition: all 0.3s ease;
@@ -290,9 +294,9 @@
     }
     
     .service-card.expanded {
-      background: rgba(25, 35, 45, 0.9);
-      border-left: 8px solid var(--cyan-exothermic);
-      box-shadow: 0 0 40px rgba(0,224,255,0.2);
+      background: rgba(30, 33, 40, 0.9);
+      border-left: 8px solid var(--or-yellow);
+      box-shadow: 0 0 40px rgba(255,187,0,0.2);
     }
 
     .card-header {
@@ -306,6 +310,7 @@
       font-size: 2.5rem;
       min-width: 50px;
       text-align: center;
+      color: var(--or-blue);
     }
     
     .card-header h3 {
@@ -336,8 +341,8 @@
     }
 
     .subservice-chip {
-      background: rgba(0,224,255,0.08);
-      border: 1px solid rgba(0,224,255,0.2);
+      background: rgba(255,187,0,0.08);
+      border: 1px solid rgba(255,187,0,0.2);
       border-radius: 40px;
       padding: 0.5rem 1.2rem;
       font-size: 0.9rem;
@@ -349,15 +354,15 @@
     }
     
     .subservice-chip:hover {
-      background: rgba(0,224,255,0.15);
-      border-color: var(--cyan-exothermic);
+      background: rgba(255,187,0,0.15);
+      border-color: var(--or-yellow);
       color: white;
     }
 
     .card-cta {
       background: transparent;
-      border: 1px solid var(--cyan-exothermic);
-      color: var(--cyan-exothermic);
+      border: 1px solid var(--or-yellow);
+      color: var(--or-yellow);
       padding: 12px 20px;
       border-radius: 40px;
       font-weight: 600;
@@ -373,14 +378,14 @@
     }
     
     .card-cta:hover {
-      background: var(--cyan-exothermic);
+      background: var(--or-yellow);
       color: #050505;
-      box-shadow: 0 0 30px var(--cyan-exothermic);
+      box-shadow: 0 0 30px var(--or-yellow);
     }
 
     .trust-section {
       padding: 80px 20px;
-      background: #0a0d14;
+      background: #0a0c10;
       position: relative;
     }
 
@@ -397,7 +402,7 @@
       content: '';
       height: 3px;
       width: 90px;
-      background: linear-gradient(90deg, transparent, cyan, transparent);
+      background: linear-gradient(90deg, transparent, var(--or-yellow), transparent);
       filter: blur(1px);
     }
 
@@ -410,23 +415,23 @@
       margin: 0 auto;
     }
     .protocol-step {
-      background: #111624;
-      border: 1px solid #263038;
+      background: #1a1c22;
+      border: 1px solid #2a2c33;
       border-radius: 40px;
       padding: 38px 28px;
       flex: 1 1 260px;
       backdrop-filter: blur(10px);
       transition: 0.3s;
-      box-shadow: 0 35px 45px -35px black, 0 0 0 1px rgba(0,224,255,0) inset;
+      box-shadow: 0 35px 45px -35px black, 0 0 0 1px rgba(255,187,0,0) inset;
       position: relative;
       text-align: center;
     }
     .protocol-step:hover {
-      border-color: cyan;
-      box-shadow: 0 0 50px rgba(0,224,255,0.2), 0 25px 30px -20px black;
+      border-color: var(--or-yellow);
+      box-shadow: 0 0 50px rgba(255,187,0,0.2), 0 25px 30px -20px black;
       transform: translateY(-8px);
     }
-    .step-icon { font-size: 3.2rem; filter: drop-shadow(0 0 16px cyan); }
+    .step-icon { font-size: 3.2rem; filter: drop-shadow(0 0 16px var(--or-yellow)); }
 
     .modal-overlay {
       display: none;
@@ -442,7 +447,7 @@
     }
 
     .modal-content {
-      background: rgba(8, 12, 22, 0.75);
+      background: rgba(18, 20, 23, 0.75);
       backdrop-filter: blur(30px);
       -webkit-backdrop-filter: blur(30px);
       border: 1px solid rgba(255,255,255,0.1);
@@ -451,7 +456,7 @@
       padding: 36px 32px;
       max-width: 640px;
       width: 100%;
-      box-shadow: 0 0 100px rgba(0,224,255,0.3), 0 30px 50px #000;
+      box-shadow: 0 0 100px rgba(255,187,0,0.3), 0 30px 50px #000;
       animation: sapphireRise 0.5s ease;
       position: relative;
     }
@@ -470,7 +475,7 @@
       transition: 0.2s;
       line-height: 1;
     }
-    .close-modal:hover { color: white; text-shadow: 0 0 30px cyan; transform: rotate(90deg); }
+    .close-modal:hover { color: white; text-shadow: 0 0 30px var(--or-yellow); transform: rotate(90deg); }
 
     .modal-title {
       color: white;
@@ -479,21 +484,21 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      border-bottom: 2px solid rgba(0,224,255,0.4);
+      border-bottom: 2px solid rgba(255,187,0,0.4);
       padding-bottom: 24px;
       margin-bottom: 24px;
       text-transform: uppercase;
       letter-spacing: -1px;
     }
 
-    #modalIcon { font-size: 2.6rem; filter: drop-shadow(0 0 12px cyan); }
+    #modalIcon { font-size: 2.6rem; filter: drop-shadow(0 0 12px var(--or-yellow)); }
 
     .question-label {
       text-transform: uppercase;
       font-weight: 500;
       letter-spacing: 1px;
       color: #aaf0ff;
-      border-left: 5px solid var(--cyan-exothermic);
+      border-left: 5px solid var(--or-yellow);
       padding-left: 16px;
       margin-bottom: 16px;
     }
@@ -505,8 +510,8 @@
     }
 
     .option-btn {
-      background: #1a1e2c;
-      border: 1px solid #2f3a4a;
+      background: #1a1c22;
+      border: 1px solid #2a2c33;
       border-radius: 40px;
       padding: 16px 12px;
       font-weight: 400;
@@ -516,16 +521,32 @@
       text-align: center;
     }
     .option-btn:hover {
-      border-color: cyan;
-      background: #1f2b3c;
-      box-shadow: 0 0 22px cyan;
+      border-color: var(--or-yellow);
+      background: #22242b;
+      box-shadow: 0 0 22px var(--or-yellow);
     }
     .option-btn.selected {
-      background: cyan;
+      background: var(--or-yellow);
       color: #050505;
       font-weight: 600;
-      box-shadow: 0 0 35px cyan;
+      box-shadow: 0 0 35px var(--or-yellow);
       border-color: white;
+    }
+
+    .input-field {
+      background: #1a1c22;
+      border: 1px solid #2a2c33;
+      transition: all 0.2s;
+      color: white;
+      border-radius: 40px;
+      padding: 16px 20px;
+      width: 100%;
+      font-size: 1rem;
+    }
+    .input-field:focus {
+      border-color: var(--or-yellow);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(255,187,0,0.2);
     }
 
     .modal-nav {
@@ -550,8 +571,8 @@
       gap: 8px;
     }
     .nav-btn:hover:not(:disabled) {
-      border-color: var(--cyan-exothermic);
-      box-shadow: 0 0 20px cyan;
+      border-color: var(--or-yellow);
+      box-shadow: 0 0 20px var(--or-yellow);
     }
     .nav-btn:disabled {
       opacity: 0.3;
@@ -586,7 +607,7 @@
       right: 20px;
       max-width: 560px;
       margin: 0 auto;
-      background: rgba(6, 12, 20, 0.7);
+      background: rgba(18, 20, 23, 0.7);
       backdrop-filter: blur(35px) saturate(300%);
       -webkit-backdrop-filter: blur(35px);
       border: 1px solid rgba(255,255,255,0.2);
@@ -596,7 +617,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-shadow: 0 0 70px cyan, 0 20px 40px black;
+      box-shadow: 0 0 70px var(--or-yellow), 0 20px 40px black;
       z-index: 2000;
       color: white;
       font-size: 1.2rem;
@@ -606,17 +627,17 @@
     }
     .sticky-cta:hover {
       border-color: white;
-      box-shadow: 0 0 100px cyan, 0 25px 45px black;
+      box-shadow: 0 0 100px var(--or-yellow), 0 25px 45px black;
       transform: scale(1.02);
     }
     .sticky-cta span:last-child {
-      background: cyan;
+      background: var(--or-yellow);
       color: #000;
       padding: 8px 24px;
       border-radius: 60px;
       font-size: 1.6rem;
       font-weight: 700;
-      box-shadow: 0 0 30px cyan;
+      box-shadow: 0 0 30px var(--or-yellow);
     }
 
     @media (max-width: 600px) {
@@ -630,37 +651,37 @@
 </head>
 <body>
   <header class="header">
-    <img src="https://github.com/serviciosdigitalesmx/OR-SERVICIOS/blob/main/logo.png" alt="OR SERVICIOS" class="logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';" />
-    <span style="display:none; font-size:2.5rem; color:#00d4ff;">⚙️SP</span>
+    <div class="logo-text">OR <span>SERVICIOS</span></div>
+    <div style="font-size:0.9rem; color:#a6b0c0; margin-top:5px;">Ing. Javier Ovalle</div>
   </header>
 
   <section class="hero">
-    <h1>INGENIERÍA DE MANTENIMIENTO<br><span>Diagnóstico predictivo y ejecución técnica.</span></h1>
+    <h1>SOLUCIONES TÉCNICAS<br><span>Electricidad · Clima · Soldadura · Plomería</span></h1>
     <p>⚡ respuesta 30 min · monterrey</p>
     <div class="services-grid">
-      <button class="service-btn" onclick="openModal('minisplit')"><span class="service-icon">❄️</span><div>Minisplit <small>instalación / carga / limpieza</small></div></button>
-      <button class="service-btn" onclick="openModal('plomeria')"><span class="service-icon">🚰</span><div>Plomería <small>destape hidráulico</small></div></button>
-      <button class="service-btn" onclick="openModal('electricidad')"><span class="service-icon">⚡</span><div>Electricidad <small>tableros / tierras</small></div></button>
-      <button class="service-btn" onclick="openModal('soldadura')"><span class="service-icon">🧱</span><div>Soldadura <small>estructura / portones</small></div></button>
-      <button class="service-btn" onclick="openModal('camaras')"><span class="service-icon">🎥</span><div>Cámaras <small>cctv / control acceso</small></div></button>
-      <button class="service-btn" onclick="openModal('general')"><span class="service-icon">🏠</span><div>Mantenimiento general <small>pintura industrial / tablaroca</small></div></button>
+      <button class="service-btn" onclick="openModal('electricidad')"><span class="service-icon">⚡</span><div>Electricidad <small>110/220 · acometidas</small></div></button>
+      <button class="service-btn" onclick="openModal('minisplit')"><span class="service-icon">❄️</span><div>Minisplit <small>instalación / mantenimiento</small></div></button>
+      <button class="service-btn" onclick="openModal('soldadura')"><span class="service-icon">🔥</span><div>Soldadura <small>estructuras / portones</small></div></button>
+      <button class="service-btn" onclick="openModal('plomeria')"><span class="service-icon">🚰</span><div>Plomería <small>destapes / fugas</small></div></button>
+      <button class="service-btn" onclick="openModal('ventiladores')"><span class="service-icon">🌀</span><div>Ventiladores <small>instalación / reparación</small></div></button>
+      <button class="service-btn" onclick="openModal('general')"><span class="service-icon">🔧</span><div>General <small>mantenimiento</small></div></button>
     </div>
   </section>
 
   <section class="trust-section">
-    <h2 class="trust-title">protocolo esem</h2>
+    <h2 class="trust-title">protocolo or</h2>
     <div class="protocol-grid">
       <div class="protocol-step service-card" id="protocol1" onclick="toggleCard('protocol1')">
         <div class="card-header" style="padding:0; flex-direction:column;">
           <span class="step-icon">📡</span>
-          <h3>1. escaneo digital</h3>
-          <p>diagnóstico por capas · inteligencia de falla</p>
+          <h3>1. diagnóstico técnico</h3>
+          <p>evaluación profesional in situ</p>
         </div>
         <div class="technical-layer" onclick="event.stopPropagation()">
           <div style="padding:15px 0;">
-            <p class="text-sp-gray">Análisis con termografía, ultrasonido y vibraciones. Detección de fallas incipientes.</p>
+            <p class="text-sp-gray">Revisión detallada del equipo o instalación para identificar la falla.</p>
             <button class="card-cta" onclick="openModal('general'); event.stopPropagation();">
-              <i class="fa-regular fa-clipboard"></i> SOLICITAR ESCANEO
+              <i class="fa-regular fa-clipboard"></i> SOLICITAR DIAGNÓSTICO
             </button>
           </div>
         </div>
@@ -669,12 +690,12 @@
       <div class="protocol-step service-card" id="protocol2" onclick="toggleCard('protocol2')">
         <div class="card-header" style="padding:0; flex-direction:column;">
           <span class="step-icon">📋</span>
-          <h3>2. ficha técnica</h3>
-          <p>materiales, tiempos, planimetría</p>
+          <h3>2. ficha de servicio</h3>
+          <p>presupuesto detallado</p>
         </div>
         <div class="technical-layer" onclick="event.stopPropagation()">
           <div style="padding:15px 0;">
-            <p class="text-sp-gray">Documento con alcance, especificaciones, normas aplicables y cronograma.</p>
+            <p class="text-sp-gray">Recibirás un desglose de los trabajos y materiales necesarios.</p>
             <button class="card-cta" onclick="openModal('general'); event.stopPropagation();">
               <i class="fa-regular fa-file-lines"></i> VER FORMATO
             </button>
@@ -686,11 +707,11 @@
         <div class="card-header" style="padding:0; flex-direction:column;">
           <span class="step-icon">🔧</span>
           <h3>3. ejecución certificada</h3>
-          <p>técnico esem · garantía de obra</p>
+          <p>trabajo garantizado</p>
         </div>
         <div class="technical-layer" onclick="event.stopPropagation()">
           <div style="padding:15px 0;">
-            <p class="text-sp-gray">Personal con certificación ESEM. Garantía de 12 meses en todos los trabajos.</p>
+            <p class="text-sp-gray">Personal calificado realiza el trabajo con garantía por escrito.</p>
             <button class="card-cta" onclick="openModal('general'); event.stopPropagation();">
               <i class="fa-regular fa-certificate"></i> VER CERTIFICACIONES
             </button>
@@ -701,126 +722,141 @@
   </section>
 
   <section class="services-detail">
-    <h2 class="section-title">especialidades de acero</h2>
-    <div class="section-subtitle">soldamos · instalamos · reparamos · certificamos</div>
+    <h2 class="section-title">especialidades or</h2>
+    <div class="section-subtitle">instalamos · reparamos · certificamos</div>
     
     <div class="services-list">
-      <div class="service-card" id="card-soldadura" onclick="toggleCard('card-soldadura')">
+      <!-- Electricidad -->
+      <div class="service-card" id="card-electricidad" onclick="toggleCard('card-electricidad')">
         <div class="card-header">
-          <span class="service-item-icon">🔥</span>
+          <span class="service-item-icon">⚡</span>
           <div>
-            <h3>Soldadura estructural</h3>
-            <p>portones, escaleras, rejas, perfiles</p>
+            <h3>Electricidad 110/220</h3>
+            <p>acometidas · cableado de casa · tableros</p>
           </div>
         </div>
         <div class="technical-layer" onclick="event.stopPropagation()">
           <div>
-            <span class="subservice-chip">TIG / MIG</span>
-            <span class="subservice-chip">Acero inoxidable</span>
-            <span class="subservice-chip">Herrería residencial</span>
-            <button class="card-cta" onclick="openModal('soldadura'); event.stopPropagation();">
-              <i class="fa-regular fa-clipboard"></i> COTIZAR SOLDADURA
+            <span class="subservice-chip">Acometidas</span>
+            <span class="subservice-chip">Cableado de casa</span>
+            <span class="subservice-chip">Tableros</span>
+            <span class="subservice-chip">Protecciones</span>
+            <span class="subservice-chip">Diagnóstico</span>
+            <button class="card-cta" onclick="openModal('electricidad'); event.stopPropagation();">
+              <i class="fa-regular fa-bolt"></i> COTIZAR ELECTRICIDAD
             </button>
           </div>
         </div>
       </div>
 
+      <!-- Minisplit -->
       <div class="service-card" id="card-minisplit" onclick="toggleCard('card-minisplit')">
         <div class="card-header">
           <span class="service-item-icon">❄️</span>
           <div>
-            <h3>Minisplit / VRV</h3>
-            <p>instalación, carga de gas, limpieza, electrónica</p>
+            <h3>Instalación de Minisplit</h3>
+            <p>montaje · mantenimiento · reparación</p>
           </div>
         </div>
         <div class="technical-layer" onclick="event.stopPropagation()">
           <div>
             <span class="subservice-chip">Instalación</span>
-            <span class="subservice-chip">R410A / R32</span>
-            <span class="subservice-chip">Lavado químico</span>
-            <span class="subservice-chip">Reparación de tarjetas</span>
+            <span class="subservice-chip">Mantenimiento</span>
+            <span class="subservice-chip">Carga de gas</span>
+            <span class="subservice-chip">Reparación</span>
+            <span class="subservice-chip">Limpieza</span>
             <button class="card-cta" onclick="openModal('minisplit'); event.stopPropagation();">
-              <i class="fa-regular fa-snowflake"></i> DIAGNOSTICAR CLIMA
+              <i class="fa-regular fa-snowflake"></i> COTIZAR MINISPLIT
             </button>
           </div>
         </div>
       </div>
 
+      <!-- Soldadura -->
+      <div class="service-card" id="card-soldadura" onclick="toggleCard('card-soldadura')">
+        <div class="card-header">
+          <span class="service-item-icon">🔥</span>
+          <div>
+            <h3>Soldadura</h3>
+            <p>estructuras · portones · reparaciones</p>
+          </div>
+        </div>
+        <div class="technical-layer" onclick="event.stopPropagation()">
+          <div>
+            <span class="subservice-chip">Portones</span>
+            <span class="subservice-chip">Estructuras</span>
+            <span class="subservice-chip">Rejas</span>
+            <span class="subservice-chip">Escaleras</span>
+            <span class="subservice-chip">Barandales</span>
+            <button class="card-cta" onclick="openModal('soldadura'); event.stopPropagation();">
+              <i class="fa-regular fa-hammer"></i> COTIZAR SOLDADURA
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plomería -->
       <div class="service-card" id="card-plomeria" onclick="toggleCard('card-plomeria')">
         <div class="card-header">
           <span class="service-item-icon">🚰</span>
           <div>
-            <h3>Plomería pesada</h3>
-            <p>hidroneumáticos, destape mecánico, fugas</p>
+            <h3>Plomería</h3>
+            <p>destapes · fugas · instalaciones</p>
           </div>
         </div>
         <div class="technical-layer" onclick="event.stopPropagation()">
           <div>
-            <span class="subservice-chip">Destape con máquina</span>
-            <span class="subservice-chip">Fugas ocultas</span>
-            <span class="subservice-chip">Bombas hidroneumáticas</span>
+            <span class="subservice-chip">Destapes</span>
+            <span class="subservice-chip">Fugas</span>
+            <span class="subservice-chip">Instalaciones</span>
+            <span class="subservice-chip">Bombas</span>
+            <span class="subservice-chip">Tuberías</span>
             <button class="card-cta" onclick="openModal('plomeria'); event.stopPropagation();">
-              <i class="fa-regular fa-faucet-drip"></i> REVISAR PLOMERÍA
+              <i class="fa-regular fa-faucet-drip"></i> COTIZAR PLOMERÍA
             </button>
           </div>
         </div>
       </div>
 
-      <div class="service-card" id="card-electrica" onclick="toggleCard('card-electrica')">
+      <!-- Ventiladores -->
+      <div class="service-card" id="card-ventiladores" onclick="toggleCard('card-ventiladores')">
         <div class="card-header">
-          <span class="service-item-icon">⚡</span>
+          <span class="service-item-icon">🌀</span>
           <div>
-            <h3>Electricidad trifásica</h3>
-            <p>tableros, tierras físicas, cortos</p>
+            <h3>Ventiladores</h3>
+            <p>instalación · reparación · balanceo</p>
           </div>
         </div>
         <div class="technical-layer" onclick="event.stopPropagation()">
           <div>
-            <span class="subservice-chip">Tableros generales</span>
-            <span class="subservice-chip">Tierras físicas</span>
-            <span class="subservice-chip">Análisis termográfico</span>
-            <button class="card-cta" onclick="openModal('electricidad'); event.stopPropagation();">
-              <i class="fa-regular fa-bolt"></i> DIAGNOSTICAR ELECTRICIDAD
+            <span class="subservice-chip">Instalación</span>
+            <span class="subservice-chip">Reparación</span>
+            <span class="subservice-chip">Balanceo</span>
+            <span class="subservice-chip">Extractores</span>
+            <button class="card-cta" onclick="openModal('ventiladores'); event.stopPropagation();">
+              <i class="fa-regular fa-fan"></i> COTIZAR VENTILADOR
             </button>
           </div>
         </div>
       </div>
 
-      <div class="service-card" id="card-pintura" onclick="toggleCard('card-pintura')">
+      <!-- Mantenimiento General -->
+      <div class="service-card" id="card-general" onclick="toggleCard('card-general')">
         <div class="card-header">
-          <span class="service-item-icon">🎨</span>
+          <span class="service-item-icon">🔧</span>
           <div>
-            <h3>Pintura industrial</h3>
-            <p>pulverizadora, acabado epóxico</p>
+            <h3>Mantenimiento General</h3>
+            <p>preventivo · correctivo · diagnóstico</p>
           </div>
         </div>
         <div class="technical-layer" onclick="event.stopPropagation()">
           <div>
-            <span class="subservice-chip">Airless</span>
-            <span class="subservice-chip">Epóxico / Esmalte</span>
-            <span class="subservice-chip">Texturizados</span>
+            <span class="subservice-chip">Preventivo</span>
+            <span class="subservice-chip">Correctivo</span>
+            <span class="subservice-chip">Diagnóstico</span>
+            <span class="subservice-chip">Revisión</span>
             <button class="card-cta" onclick="openModal('general'); event.stopPropagation();">
-              <i class="fa-regular fa-paint-roller"></i> COTIZAR PINTURA
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="service-card" id="card-cctv" onclick="toggleCard('card-cctv')">
-        <div class="card-header">
-          <span class="service-item-icon">📹</span>
-          <div>
-            <h3>CCTV / control acceso</h3>
-            <p>instalación, configuración remota</p>
-          </div>
-        </div>
-        <div class="technical-layer" onclick="event.stopPropagation()">
-          <div>
-            <span class="subservice-chip">Cámaras IP</span>
-            <span class="subservice-chip">NVR / DVR</span>
-            <span class="subservice-chip">Control de acceso</span>
-            <button class="card-cta" onclick="openModal('camaras'); event.stopPropagation();">
-              <i class="fa-regular fa-video"></i> INSTALAR CCTV
+              <i class="fa-regular fa-clipboard"></i> COTIZAR GENERAL
             </button>
           </div>
         </div>
@@ -831,7 +867,7 @@
   <div id="diagnosticModal" class="modal-overlay" onclick="closeModal(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
       <span class="close-modal" onclick="closeModal()">&times;</span>
-      <h2 class="modal-title"><span id="modalIcon">🔧</span><span id="modalServiceName">servicio</span></h2>
+      <h2 class="modal-title"><span id="modalIcon">🔧</span><span id="modalServiceName">servicio or</span></h2>
       
       <div id="questionsContainer"></div>
       
@@ -839,7 +875,7 @@
         <button class="nav-btn" id="prevBtn" onclick="previousStep()" disabled>
           <i class="fas fa-arrow-left"></i> Anterior
         </button>
-        <div class="text-cyan-400 font-bold" id="stepIndicator">Paso 1 / 7</div>
+        <div class="text-[#ffbb00] font-bold" id="stepIndicator">Paso 1 / ?</div>
         <button class="nav-btn" id="nextBtn" onclick="nextStep()">
           Siguiente <i class="fas fa-arrow-right"></i>
         </button>
@@ -858,45 +894,67 @@
   </div>
 
   <script>
-    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw7Nuc4WOp55JV4EtArVDlm47koaVoyfyJa-wn-6s5pwpcxA89SOTt48XlldXmNVmS-Ew/exec';
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyupioKdmTl3Q3Up83FSA0yfeqki-tLMsHDlv-EBdWvbA34ouZ0ZKAVFKRerj8WzBjBcA/exec';
     
     const serviceConfig = {
+      electricidad: { 
+        name: "electricidad 110/220", 
+        icon: "⚡", 
+        questions: [
+          { id: "p1", label: "tipo de trabajo", options: ["Acometida", "Cableado de casa", "Tablero", "Protecciones", "Diagnóstico"] },
+          { id: "p2", label: "tipo de inmueble", options: ["casa", "local", "bodega", "oficina", "industria"] },
+          { id: "p3", label: "urgencia", options: ["hoy (emergencia)", "mañana", "esta semana", "programar"] },
+          { id: "p4", label: "cantidad de puntos", options: ["1-3", "4-6", "7-10", "+10"] }
+        ]
+      },
       minisplit: { 
         name: "minisplit · climatización", 
         icon: "❄️", 
         questions: [
-          { id: "p1", label: "¿Qué necesitas?", options: ["Instalación de minisplit", "Mantenimiento / Limpieza", "Reparación / Falla", "Carga de gas", "No enfría", "Ruido anómalo", "Gotea agua", "No enciende"] },
-          { id: "p2", label: "ubicación del equipo", options: ["casa", "oficina", "local comercial", "industria"] },
-          { id: "p3", label: "urgencia", options: ["hoy (emergencia)", "mañana", "esta semana", "programar"] },
-          { id: "p4", label: "cantidad de equipos", options: ["1", "2", "3-5", "+5"] }
+          { id: "p1", label: "tipo de servicio", options: ["Instalación", "Mantenimiento", "Reparación", "Carga de gas", "Limpieza", "No enfría", "Gotea", "Ruido"] },
+          { id: "p2", label: "capacidad del equipo", options: ["1 ton", "1.5 ton", "2 ton", "3 ton", "+3 ton"] },
+          { id: "p3", label: "tipo de gas", options: ["R410A", "R22", "R32", "No sé"] },
+          { id: "p4", label: "urgencia", options: ["hoy (emergencia)", "mañana", "esta semana", "programar"] },
+          { id: "p5", label: "cantidad de equipos", options: ["1", "2", "3-5", "+5"] }
         ]
       },
-      plomeria: { name: "plomería / destape", icon: "🚰", questions: [
-        { id: "p1", label: "problema", options: ["caño tapado", "fuga de agua", "wc tapado", "grifo gotea", "tubería rota"] },
-        { id: "p2", label: "zona afectada", options: ["cocina", "baño", "patio", "exterior"] },
-        { id: "p3", label: "urgencia", options: ["inundación", "hoy", "mañana", "esta semana"] }
-      ]},
-      electricidad: { name: "electricidad crítica", icon: "⚡", questions: [
-        { id: "p1", label: "falla reportada", options: ["corto / plafones", "apagones constantes", "sin luz parcial", "instalación nueva", "tablero principal"] },
-        { id: "p2", label: "tipo de inmueble", options: ["casa", "local", "bodega", "oficina"] },
-        { id: "p3", label: "urgencia", options: ["sin luz ahora", "hoy", "mañana", "cotizar"] }
-      ]},
-      soldadura: { name: "soldadura / herrería", icon: "🧱", questions: [
-        { id: "p1", label: "trabajo requerido", options: ["reparar portón", "portón nuevo", "escalera", "estructura", "rejas"] },
-        { id: "p2", label: "material", options: ["hierro", "acero al carbón", "aluminio", "mixto"] },
-        { id: "p3", label: "entrega", options: ["urgente (seguridad)", "2-3 días", "semana", "proyecto"] }
-      ]},
-      camaras: { name: "cámaras / cctv", icon: "🎥", questions: [
-        { id: "p1", label: "servicio", options: ["instalación nueva", "reparar equipo", "agregar cámara", "configurar app"] },
-        { id: "p2", label: "cantidad de cámaras", options: ["1-2", "3-4", "5-8", "+8"] },
-        { id: "p3", label: "lugar", options: ["casa", "negocio", "bodega", "residencial"] }
-      ]},
-      general: { name: "mantenimiento general", icon: "🏠", questions: [
-        { id: "p1", label: "rubro", options: ["pintura industrial", "tablaroca", "impermeabilizar", "tinaco/bomba", "varios"] },
-        { id: "p2", label: "magnitud", options: ["1 día", "2-3 días", "semana+", "recurrente"] },
-        { id: "p3", label: "inmueble", options: ["casa", "departamento", "negocio", "bodega"] },
-        { id: "p4", label: "prioridad", options: ["hoy", "esta semana", "cotización"] }
-      ]}
+      soldadura: { 
+        name: "soldadura / herrería", 
+        icon: "🔥", 
+        questions: [
+          { id: "p1", label: "trabajo requerido", options: ["Portón nuevo", "Reparar portón", "Estructura", "Rejas", "Escalera", "Barandal"] },
+          { id: "p2", label: "material", options: ["Hierro", "Acero", "Aluminio", "Inoxidable", "Mixto"] },
+          { id: "p3", label: "medidas aproximadas", options: ["Pequeño", "Mediano", "Grande", "Muy grande"] },
+          { id: "p4", label: "urgencia", options: ["urgente (seguridad)", "2-3 días", "semana", "proyecto"] }
+        ]
+      },
+      plomeria: { 
+        name: "plomería", 
+        icon: "🚰", 
+        questions: [
+          { id: "p1", label: "problema", options: ["Caño tapado", "Fuga de agua", "WC tapado", "Grifo gotea", "Tubería rota", "Instalación", "Bomba de agua"] },
+          { id: "p2", label: "zona afectada", options: ["Cocina", "Baño", "Patio", "Jardín", "Exterior"] },
+          { id: "p3", label: "urgencia", options: ["Inundación", "Hoy", "Mañana", "Esta semana"] }
+        ]
+      },
+      ventiladores: { 
+        name: "ventiladores", 
+        icon: "🌀", 
+        questions: [
+          { id: "p1", label: "servicio", options: ["Instalación", "Reparación", "Balanceo", "Mantenimiento"] },
+          { id: "p2", label: "tipo de ventilador", options: ["Techo", "Pared", "Industrial", "Extractor", "Torre"] },
+          { id: "p3", label: "urgencia", options: ["Hoy", "Mañana", "Esta semana"] }
+        ]
+      },
+      general: { 
+        name: "mantenimiento general", 
+        icon: "🔧", 
+        questions: [
+          { id: "p1", label: "tipo de servicio", options: ["Preventivo", "Correctivo", "Diagnóstico", "Revisión general"] },
+          { id: "p2", label: "área", options: ["Eléctrica", "Plomería", "Clima", "Herrería", "Múltiple"] },
+          { id: "p3", label: "urgencia", options: ["Hoy", "Mañana", "Esta semana", "Programar"] }
+        ]
+      }
     };
 
     let currentService = null;
@@ -969,20 +1027,20 @@
           html = `
             <div class="question-block">
               <label class="question-label">${currentStep + 1}. Nombre completo</label>
-              <input type="text" id="clientNombre" placeholder="Ej: Juan Pérez" class="input-field w-full p-4 rounded-full text-base" value="${clientData.nombre}">
+              <input type="text" id="clientNombre" placeholder="Ej: Juan Pérez" class="input-field w-full" value="${clientData.nombre}">
             </div>`;
         } else if (dataStep === 1) {
           html = `
             <div class="question-block">
               <label class="question-label">${currentStep + 1}. Teléfono de contacto</label>
-              <input type="tel" id="clientTelefono" placeholder="Ej: 8112345678" class="input-field w-full p-4 rounded-full text-base" value="${clientData.telefono}">
+              <input type="tel" id="clientTelefono" placeholder="Ej: 8112345678" class="input-field w-full" value="${clientData.telefono}">
             </div>`;
         } else if (dataStep === 2) {
           html = `
             <div class="question-block">
               <label class="question-label">${currentStep + 1}. Dirección</label>
-              <input type="text" id="clientDireccion" placeholder="Ej: Calle, colonia, ciudad" class="input-field w-full p-4 rounded-full text-base" value="${clientData.direccion}">
-              <p class="text-xs text-cyan-400/70 mt-2">Opcional pero recomendado</p>
+              <input type="text" id="clientDireccion" placeholder="Ej: Calle, colonia, ciudad" class="input-field w-full" value="${clientData.direccion}">
+              <p class="text-xs text-[#ffbb00]/70 mt-2">Opcional pero recomendado</p>
             </div>`;
         }
         
@@ -1068,14 +1126,14 @@
       
       let summaryHtml = '<div class="question-block"><h3 class="text-xl text-white mb-4">📋 Resumen de tu solicitud</h3><div class="space-y-2 bg-black/30 p-4 rounded-2xl">';
       
-      summaryHtml += `<div class="border-b border-cyan-500/20 pb-2 mb-2">
-        <p class="text-cyan-400 font-bold">👤 DATOS DEL CLIENTE</p>
+      summaryHtml += `<div class="border-b border-[#ffbb00]/20 pb-2 mb-2">
+        <p class="text-[#ffbb00] font-bold">👤 DATOS DEL CLIENTE</p>
         <p class="text-white">${clientData.nombre || 'No proporcionado'}</p>
         ${clientData.telefono ? `<p class="text-sm text-gray-400">📞 ${clientData.telefono}</p>` : ''}
         ${clientData.direccion ? `<p class="text-sm text-gray-400">📍 ${clientData.direccion}</p>` : ''}
       </div>`;
       
-      summaryHtml += `<p class="text-cyan-400 font-bold mb-2">🔧 DIAGNÓSTICO</p>`;
+      summaryHtml += `<p class="text-[#ffbb00] font-bold mb-2">🔧 DIAGNÓSTICO TÉCNICO</p>`;
       cfg.questions.forEach(q => {
         summaryHtml += `<div class="flex justify-between border-b border-white/10 py-2">
           <span class="text-gray-400">${q.label}:</span>
@@ -1119,14 +1177,14 @@
 
     async function sendToWhatsApp() {
       const cfg = serviceConfig[currentService];
-      const phone = '528110021835';
+      const phone = '5218110021835';
       
       const ahora = new Date();
       const year = ahora.getFullYear().toString().slice(-2);
       const month = (ahora.getMonth() + 1).toString().padStart(2, '0');
       const day = ahora.getDate().toString().padStart(2, '0');
       const random = Math.floor(Math.random() * 9000 + 1000);
-      const folio = `COT-${year}${month}${day}-${random}`;
+      const folio = `OR-${year}${month}${day}-${random}`;
       
       const datosParaCloud = {
         servicio: cfg.name,
@@ -1161,7 +1219,7 @@
       if (clientData.telefono) mensaje += `📞 *TELÉFONO:* ${clientData.telefono}\n`;
       if (clientData.direccion) mensaje += `📍 *DIRECCIÓN:* ${clientData.direccion}\n`;
       mensaje += `🔨 *SERVICIO:* ${cfg.name}\n\n`;
-      mensaje += `📊 *DIAGNÓSTICO:*\n`;
+      mensaje += `📊 *DIAGNÓSTICO TÉCNICO:*\n`;
       
       cfg.questions.forEach(q => {
         mensaje += `• ${q.label}: *${answers[q.id] || '—'}*\n`;
@@ -1169,8 +1227,8 @@
       
       mensaje += `\n⏱️ *FECHA:* ${ahora.toLocaleDateString('es-MX')}\n`;
       mensaje += `🕐 *HORA:* ${ahora.toLocaleTimeString('es-MX')}\n\n`;
-      mensaje += `📌 *IMPORTANTE:* El técnico usará este folio (${folio}) para cargar tu cotización.\n`;
-      mensaje += `_Espera nuestra comunicación._`;
+      mensaje += `📌 El técnico usará este folio (${folio}) para dar seguimiento.\n`;
+      mensaje += `_Espera nuestra confirmación._`;
       
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(mensaje)}`;
       window.open(url, '_blank');
